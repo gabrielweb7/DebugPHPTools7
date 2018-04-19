@@ -4,7 +4,7 @@
  *                   Criado por Gabriel Azuaga Barbosa
  *                  E-mail: gabrielbarbosaweb7@gmail.com
  *  `•.¸¸.•´´¯`••._.• [ http://gabrieldaluz7.co.nf/ ] •._.••`¯´´•.¸¸.•`
- * Name: DebugPHPTools7 <1.0.0>
+ * Name: DebugTools7 <1.0.0>
  * ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄
  */
 
@@ -38,7 +38,8 @@ if(!$s or $s !== $senha) { die("Erro na autenticação!"); }
         <a href="?s=<?php echo $s; ?>&a=showAllSessions"><button <?php echo ($a=="showAllSessions")?"class='active'":null; ?>>ShowAllSesssions</button></a>
         <a href="?s=<?php echo $s; ?>&a=showAllCookies"><button <?php echo ($a=="showAllCookies")?"class='active'":null; ?>>ShowAllCookies</button></a>
         <a href="?s=<?php echo $s; ?>&a=showVarServer"><button <?php echo ($a=="showVarServer")?"class='active'":null; ?>>ShowVarServer</button></a>
-
+        <a href="?s=<?php echo $s; ?>&a=showVarIniGet"><button <?php echo ($a=="showVarIniGet")?"class='active'":null; ?>>showVarIniGet</button></a>
+		<br>
 <?php
 
     if($a == "showAllSessions") {
@@ -50,10 +51,14 @@ if(!$s or $s !== $senha) { die("Erro na autenticação!"); }
     } else if($a == "showVarServer") {
         echo "<pre>";
         print_r($_SERVER);
-    }
+    } else if($a == "showVarIniGet") {
     
+        echo '<br> <span style="color:yellow">[UPLOADS VARS]</span>';
+        echo '<br> > upload_max_filesize = '.ini_get('upload_max_filesize');
+        echo '<br> > post_max_size = '.ini_get('upload_max_filesize');
+        echo '<br> > max_input_time = '.ini_get('max_input_time');
+        echo '<br> > max_execution_time = '.ini_get('max_execution_time');
+    }
 ?>
-
-
 
 
